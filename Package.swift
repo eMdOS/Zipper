@@ -16,3 +16,23 @@ let package = Package(
     ],
     swiftLanguageVersions: [.v5]
 )
+
+#if canImport(PackageConfig)
+    import PackageConfig
+
+    let paths = [
+        "./Package.swift",
+        "./Sources",
+        "./Tests",
+    ].joined(separator: " ")
+
+    let config = PackageConfiguration([
+        "komondor": [
+            "pre-push": "swift test",
+            "pre-commit": [
+                "swift run swiftformat \(paths)",
+                "git add \(paths)",
+            ],
+        ],
+    ]).write()
+#endif
