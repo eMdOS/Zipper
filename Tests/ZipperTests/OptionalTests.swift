@@ -47,4 +47,64 @@ final class OptionalTests: XCTestCase {
             )
         )
     }
+
+    func testZip4() {
+        struct Zip4 {
+            let a: String
+            let b: String
+            let c: String
+            let d: String
+        }
+
+        XCTAssertNotNil(
+            zip(with: Zip4.init)(
+                lift("a"),
+                lift("b"),
+                lift("c"),
+                lift("d")
+            )
+        )
+    }
+
+    func testZip5() {
+        struct Zip5 {
+            let a: String
+            let b: String
+            let c: String
+            let d: String
+            let e: String
+        }
+
+        XCTAssertNotNil(
+            zip(with: Zip5.init)(
+                lift("a"),
+                lift("b"),
+                lift("c"),
+                lift("d"),
+                lift("e")
+            )
+        )
+    }
+
+    func testZip6() {
+        struct Zip6 {
+            let a: String
+            let b: String
+            let c: String
+            let d: String
+            let e: String
+            let f: String
+        }
+
+        XCTAssertNotNil(
+            zip(with: Zip6.init)(
+                lift("a"),
+                lift("b"),
+                lift("c"),
+                lift("d"),
+                lift("e"),
+                lift("f")
+            )
+        )
+    }
 }
